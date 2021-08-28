@@ -1,6 +1,6 @@
 package dao;
-import org.example.server.Exceptions.DaoException;
-import org.example.core.DTOs.Student;
+import exceptions.DaoException;
+import dto.User;
 import java.util.List;
 
 public interface UserDaoInterface {

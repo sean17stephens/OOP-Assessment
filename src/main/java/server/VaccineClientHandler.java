@@ -3,13 +3,13 @@ package server;
 The CAOClientHandler will run as a thread. It should listen for messages from the Client and respond to them.There should be one CAOClientHandler per Client.
  */
 
-import org.example.client.Menu;
-import org.example.core.CAOService;
-import org.example.core.DTOs.Course;
-import org.example.core.DTOs.Student;
-import org.example.core.DTOs.Student_Course;
-import org.example.server.DAOs.*;
-import org.example.server.Exceptions.DaoException;
+import client.Menu;
+import client.VaccineService;
+import dto.VaccineCentre;
+import dto.User;
+import dto.VaccineAppointment;
+import dao.*;
+import exceptions.DaoException;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -42,7 +42,6 @@ public class VaccineClientHandler implements Runnable {
             OutputStream os = clientSocket.getOutputStream();
             this.socketWriter = new PrintWriter(os, true);
 
-            //  this.clientNumber = clientNumber; //ID number assigned to client (not needed)
             this.socket = clientSocket; // store socket reference for closing.
         } catch (IOException ex) {
             ex.printStackTrace();

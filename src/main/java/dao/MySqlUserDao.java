@@ -2,8 +2,8 @@ package dao;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import org.example.server.Exceptions.DaoException;
-import org.example.core.DTOs.Student;
+import exceptions.DaoException;
+import dto.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

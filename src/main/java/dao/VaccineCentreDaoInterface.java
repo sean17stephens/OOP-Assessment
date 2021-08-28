@@ -1,6 +1,6 @@
 package dao;
-import org.example.core.DTOs.Course;
-import org.example.server.Exceptions.DaoException;
+import dto.VaccineCentre;
+import exceptions.DaoException;
 import java.util.List;
 
 

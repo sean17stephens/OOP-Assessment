@@ -1,0 +1,10 @@
+package client;
+
+public enum Menu {
+    QUIT,
+    LOGOUT,
+    DISPLAY_VACCINE_CENTRES,
+    BOOK_VACCINE,
+    DISPLAY_VACCINE_APPOINTMENT,
+    UPDATE_VACCINE_APPOINTMENT
+}

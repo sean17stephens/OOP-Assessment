@@ -1,8 +1,8 @@
 package dao;
-import org.example.core.DTOs.Student;
-import org.example.core.DTOs.Course;
-import org.example.server.Exceptions.DaoException;
-import org.example.core.DTOs.Student_Course;
+import dto.User;
+import dto.VaccineCentre;
+import exceptions.DaoException;
+import dto.VaccineAppointment;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

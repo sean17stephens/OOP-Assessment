@@ -1,7 +1,7 @@
 package dao;
-import org.example.core.DTOs.Course;
-import org.example.core.DTOs.Student;
-import org.example.server.Exceptions.DaoException;
+import dto.VaccineCentre;
+import dto.User;
+import exceptions.DaoException;
 import java.util.List;
 
 public interface VaccineAppointmentDaoInterface {
