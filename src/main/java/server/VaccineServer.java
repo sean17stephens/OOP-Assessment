@@ -1,14 +1,14 @@
 package server;
 
-import org.example.client.CAOClient;
-import org.example.server.CAOClientHandler;
-import org.example.core.DTOs.Course;
-import org.example.server.Exceptions.DaoException;
-import org.example.core.DTOs.Student;
-import org.example.server.DAOs.CourseDaoInterface;
-import org.example.server.DAOs.MySqlCourseDao;
-import org.example.server.DAOs.MySqlStudentDao;
-import org.example.server.DAOs.StudentDaoInterface;
+import client.VaccineClient;
+import server.VaccineClientHandler;
+import dto.VaccineCentre;
+import exceptions.DaoException;
+import dto.User;
+import dao.VaccineCentreDaoInterface;
+import dao.MySqlVaccineCentreDao;
+import dao.MySqlUserDao;
+import dao.UserDaoInterface;
 
 import java.io.IOException;
 import java.io.OutputStream;

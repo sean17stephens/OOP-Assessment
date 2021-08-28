@@ -110,7 +110,7 @@ public class VaccineClientHandler implements Runnable {
 
         if (IVaccineCentreDao != null) {
             try {
-                String courseId = components1[1];
+                String centre_id = components1[1];
                 socketWriter.println(IVaccineCentreDao.findVaccineCentre(centre_id));
 
             } catch (DaoException E) {
