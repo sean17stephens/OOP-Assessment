@@ -1,3 +1,4 @@
+//Sean Stephens D00211442
 package client;
 /* This class should contain static methods to verify input in the application
  */
@@ -46,7 +47,6 @@ public class RegexChecker
         {
             throw new IllegalArgumentException();
         }
-
     }
 }
 

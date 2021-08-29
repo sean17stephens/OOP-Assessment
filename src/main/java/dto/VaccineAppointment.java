@@ -1,3 +1,4 @@
+//Sean Stephens D00211442
 package dto;
 
 public class VaccineAppointment {
