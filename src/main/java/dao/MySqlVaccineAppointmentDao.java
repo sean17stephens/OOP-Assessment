@@ -1,19 +1,15 @@
 package dao;
-import dao.MySqlDao;
-import dao.VaccineAppointmentDaoInterface;
-import dto.User;
-import dto.VaccineCentre;
+
 import exceptions.DaoException;
 import dto.VaccineAppointment;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MySqlVaccineAppointmentDao extends MySqlDao implements VaccineAppointmentDaoInterface {
-    public boolean updateChoices(String VaccineAppointment) throws DaoException {
+
+    public boolean updateVaccineAppointmentForUser(String VaccineAppointment) throws DaoException {
 
         Connection con = null;
         PreparedStatement ps = null;

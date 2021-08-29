@@ -1,5 +1,5 @@
 package dao;
-import java.sql.*;
+
 import exceptions.DaoException;
 import dto.VaccineCentre;
 import java.sql.Connection;

@@ -197,11 +197,11 @@ public class VaccineClientHandler implements Runnable {
     }
 
 
-    public void updateChoices(String[] components) {
+    public void updateVaccineAppointmentForUser(String[] components) {
         if (IVaccineAppointmentDao != null)
             try {
                 String user_id = components[1];
-                if (IVaccineAppointmentDao.updateChoices(user_id)) {
+                if (IVaccineAppointmentDao.updateVaccineAppointmentForUser(user_id)) {
                     socketWriter.println(VaccineService.UPDATE_CURRENT);
                 } else{
                     socketWriter.println(VaccineService.FAILED_UPDATE_CURRENT);
