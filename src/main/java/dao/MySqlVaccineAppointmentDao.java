@@ -10,8 +10,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MySqlSVaccineAppointmentDao extends MySqlDao implements VaccineAppointmentDaoInterface {
-    public boolean updateChoices(String VaccineCentre) throws DaoException {
+public class MySqlVaccineCentreDao extends MySqlDao implements VaccineAppointmentDaoInterface {
+    public boolean updateChoices(String VaccineAppointment) throws DaoException {
 
         Connection con = null;
         PreparedStatement ps = null;
@@ -22,24 +22,24 @@ public class MySqlSVaccineAppointmentDao extends MySqlDao implements VaccineAppo
             //Get connection object using the methods in the super class (MySqlDao.java)...
             con = this.getConnection();
 
-            String query = "UPDATE * FROM VACCINE_APPOINTMENT Where CENTRE_ID AND APPOINTMENT_TIME = ?,?";
+            String query = "UPDATE * FROM VACCINE_APPOINTMENT Where Centre_id AND Location = ?,?";
             ps = con.prepareStatement(query);
 
             //Using a PreparedStatement to execute SQL...
             rs = ps.executeQuery();
             while (rs.next()) {
-                String centre_id = rs.getString("centre_id");
-                String location = rs.getString("location");
                 int user_id = rs.getInt("user_id");
+                String location = rs.getString("location");
+                String centre_id = rs.getString("centre_id");
 
-                VaccineCentre v = new VaccineCentre(centre_id, location);
+                VaccineAppointment v = new VaccineAppointment(user_id, location, centre_id);
 
 
                 //Using a PreparedStatement to execute SQL - UPDATE...
                 success = (ps.executeUpdate() == 1);
             }
         } catch (SQLException e) {
-            throw new DaoException("updateChoices() " + e.getMessage());
+            throw new DaoException("updateVaccine() " + e.getMessage());
         } finally {
             try {
                 if (rs != null) {
@@ -52,7 +52,7 @@ public class MySqlSVaccineAppointmentDao extends MySqlDao implements VaccineAppo
                     freeConnection(con);
                 }
             } catch (SQLException e) {
-                throw new DaoException("updateChoices() " + e.getMessage());
+                throw new DaoException("updateVaccine() " + e.getMessage());
             }
 
             return true;     // may be empty

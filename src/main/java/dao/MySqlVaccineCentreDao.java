@@ -71,7 +71,7 @@ public class MySqlVaccineCentreDao extends MySqlDao implements VaccineCentreDaoI
             if (rs.next()) {
                 centre_id = rs.getString("CENTRE_ID");
                 String location = rs.getString("LOCATION");
-                VaccineCentre v = new VaccineCentre(centre_id, location);
+                v = new VaccineCentre(centre_id, location);
             }
         } catch (SQLException e) {
             throw new DaoException("findVaccineCentre() " + e.getMessage());

@@ -7,8 +7,9 @@ import client.Menu;
 import client.VaccineService;
 import dto.VaccineCentre;
 import dto.User;
-import dto.VaccineAppointment;
+import dto.VaccineCentre;
 import dao.*;
+import dao.M
 import exceptions.DaoException;
 
 import java.io.IOException;
@@ -18,9 +19,6 @@ import java.io.PrintWriter;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 
@@ -48,7 +46,6 @@ public class VaccineClientHandler implements Runnable {
 
         }
     }
-
     //Declare DAO Objects.//
     UserDaoInterface IUserDao = new MySqlUserDao();
     VaccineCentreDaoInterface IVaccineCentreDao = new MySqlVaccineCentreDao();
