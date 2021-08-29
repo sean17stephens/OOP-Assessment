@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 public class MySqlVaccineAppointmentDao extends MySqlDao implements VaccineAppointmentDaoInterface {
 
     public boolean updateVaccineAppointmentForUser(String VaccineAppointment) throws DaoException {
@@ -26,18 +27,17 @@ public class MySqlVaccineAppointmentDao extends MySqlDao implements VaccineAppoi
             //Using a PreparedStatement to execute SQL...
             rs = ps.executeQuery();
             while (rs.next()) {
+
                 int user_id = rs.getInt("user_id");
                 String location = rs.getString("location");
                 String centre_id = rs.getString("centre_id");
 
                 VaccineAppointment v = new VaccineAppointment(user_id, location, centre_id);
-
-
                 //Using a PreparedStatement to execute SQL - UPDATE...
                 success = (ps.executeUpdate() == 1);
             }
         } catch (SQLException e) {
-            throw new DaoException("updateVaccine() " + e.getMessage());
+            throw new DaoException("updateVaccineAppointmentForUser() " + e.getMessage());
         } finally {
             try {
                 if (rs != null) {
@@ -50,7 +50,7 @@ public class MySqlVaccineAppointmentDao extends MySqlDao implements VaccineAppoi
                     freeConnection(con);
                 }
             } catch (SQLException e) {
-                throw new DaoException("updateVaccine() " + e.getMessage());
+                throw new DaoException("updateVaccineAppointmentForUser() " + e.getMessage());
             }
 
             return true;     // may be empty

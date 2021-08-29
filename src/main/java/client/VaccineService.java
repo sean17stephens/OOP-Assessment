@@ -7,7 +7,7 @@ public class VaccineService
 {
     /* The CAOService class has constants to define all of the messages that are sent between the Client and Server
      */
-    public static final int PORT_NUM = 50025;
+    public static final int PORT_NUM = 50000;
     public static final String HOSTNAME = "localhost";
 
     public static final String BREAKING_CHARACTER = "%%";
@@ -23,7 +23,7 @@ public class VaccineService
     public static final String LOGGED_OUT = "LOGGED OUT";
 
 
-    public static final String DISPLAY_COMMAND = "DISPLAY COURSE";
+    public static final String DISPLAY_COMMAND = "DISPLAY VACCINE";
     public static final String DISPLAY_FAILED = "DISPLAY FAILED";
 
     public static final String DISPLAY_ALL = "DISPLAY ALL";

@@ -6,11 +6,6 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-
-/* The server package should contain all code to run the server. The server uses TCP sockets and thread per client.
- The server should connect to a MySql database to register clients, allow them to login and choose courses
- The server should listen for connections and once a connection is accepted it should spawn a new CAOClientHandler thread to deal with that connection. The server then returns to listening
- */
 public class VaccineServer {
 
     public VaccineServer() throws DaoException {
@@ -31,8 +26,7 @@ public class VaccineServer {
 
             while (true) // Continuous loop to accept new clients.
             {
-                Socket socket = ss.accept();  // wait for client to connect, and open a socket with the client
-                //open a new socket to connect with client.
+                Socket socket = ss.accept();
                 clientNumber++;
 
                 System.out.println("Server: Client " + clientNumber + " has connected.");

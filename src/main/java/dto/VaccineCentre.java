@@ -1,8 +1,8 @@
 package dto;
 
 public class VaccineCentre {
-    private String centre_id;//eg DK820
-    private String location; // eg BSc in Computing
+    private String centre_id;
+    private String location;
 
     public VaccineCentre(String centre_id, String location){
         this.centre_id = centre_id;

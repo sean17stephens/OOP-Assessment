@@ -53,47 +53,6 @@ public class MySqlVaccineCentreDao extends MySqlDao implements VaccineCentreDaoI
         return vaccinecentres;     // may be empty
     }
 
-    public VaccineCentre findVaccineCentre(String centre_id) throws DaoException {
-        Connection con = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        VaccineCentre v = null;
-        try {
-            con = this.getConnection();
-            //Get connection object using the methods in the super class (MySqlDao.java)...
-
-            String query = "SELECT * FROM VACCINECENTRE WHERE CENTRE_ID = ?";
-            ps = con.prepareStatement(query);
-            ps.setString(1, centre_id);
-
-            //Using a PreparedStatement to execute SQL...
-            rs = ps.executeQuery();
-            if (rs.next()) {
-                centre_id = rs.getString("CENTRE_ID");
-                String location = rs.getString("LOCATION");
-                v = new VaccineCentre(centre_id, location);
-            }
-        } catch (SQLException e) {
-            throw new DaoException("findVaccineCentre() " + e.getMessage());
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (ps != null) {
-                    ps.close();
-                }
-                if (con != null) {
-                    freeConnection(con);
-                }
-            } catch (SQLException e) {
-                throw new DaoException("findVaccineCentre() " + e.getMessage());
-            }
-
-            return v;  // Course may be empty
-        }
-    }
-
     public List<VaccineCentre> findVaccineCentresForUser(int user_id) throws DaoException {
         Connection con = null;
         PreparedStatement ps = null;
@@ -139,58 +98,3 @@ public class MySqlVaccineCentreDao extends MySqlDao implements VaccineCentreDaoI
 
 
 }
-
-/*
-public List<User> updateCoursesForUser(int caoNumber, List<String> courses) throws DaoException{
-            Connection con = null;
-            PreparedStatement ps = null;
-            ResultSet rs = null;
-        List<User> users = new ArrayList<>();
-            try {
-                //Get connection object using the methods in the super class (MySqlDao.java)...
-                con = this.getConnection();
-
-                String query = "UPDATE course SET COURSEID = ? where caoNumber = ?";
-                ps = con.prepareStatement(query);
-                ps.setString(1, "%" + courses + "%");
-
-                //Using a PreparedStatement to execute SQL...
-                rs = ps.executeQuery();
-                while (rs.next()) {
-                    caoNumber = rs.getInt("caoNumber");
-                    String username = rs.getString("USERNAME");
-                    String password = rs.getString("PASSWORD");
-                    String lastname = rs.getString("LAST_NAME");
-                    String firstname = rs.getString("FIRST_NAME");
-                    Users u = new user(caoNumber, username, firstname, lastname, username, password);
-                   Users.add(u);
-                }
-
-
-            } catch (SQLException e) {
-                throw new DaoException("updateCoursesForUser() " + e.getMessage());
-            } finally {
-                try {
-                    if (rs != null) {
-                        rs.close();
-                    }
-                    if (ps != null) {
-                        ps.close();
-                    }
-                    if (con != null) {
-                        freeConnection(con);
-                    }
-                } catch (SQLException e) {
-                    throw new DaoException("updatePassword() " + e.getMessage());
-                }
-
-                return users;     // may be empty
-            }
-        }
-    }
-
- */
-/*
-}
-}
- */

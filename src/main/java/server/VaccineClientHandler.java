@@ -85,7 +85,6 @@ public class VaccineClientHandler implements Runnable {
 
 
 
-    //display all courses//
     private void displayVaccineCentres() {
         if (IVaccineCentreDao != null) {
             try {
@@ -98,14 +97,12 @@ public class VaccineClientHandler implements Runnable {
         }
     }
 
-
-    //find a course//
     private void findVaccineCentre(String[] components1) {
 
         if (IVaccineCentreDao != null) {
             try {
                 String centre_id = components1[1];
-                socketWriter.println(IVaccineCentreDao.findVaccineCentre(centre_id));
+                socketWriter.println(IVaccineCentreDao.findAllVaccineCentres());
 
             } catch (DaoException E) {
                 E.printStackTrace();
@@ -133,7 +130,6 @@ public class VaccineClientHandler implements Runnable {
             }
     }
 
-    //Find a student.//
     private static void findUser(int user_id) {
         UserDaoInterface IUserDao = new MySqlUserDao();
 
@@ -149,7 +145,6 @@ public class VaccineClientHandler implements Runnable {
     }
 
 
-    //Check if a user is registered.//
     private static void checkIfRegistered(User u) {
         UserDaoInterface IUserDao = new MySqlUserDao();
         try {
@@ -163,8 +158,6 @@ public class VaccineClientHandler implements Runnable {
         }
     }
 
-
-    //Let a student login.//
     public void login(String[] components) {
         if (IUserDao != null)
             try {
@@ -179,9 +172,6 @@ public class VaccineClientHandler implements Runnable {
                 E.printStackTrace();
             }
     }
-
-
-
     private void findVaccineCentresForUser(String[] components1){
 
 
@@ -195,7 +185,6 @@ public class VaccineClientHandler implements Runnable {
             }
         }
     }
-
 
     public void updateVaccineAppointmentForUser(String[] components) {
         if (IVaccineAppointmentDao != null)

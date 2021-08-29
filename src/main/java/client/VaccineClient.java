@@ -1,15 +1,5 @@
 package client;
 
-/* The client package should contain all code and classes needed to run the Client
- */
-
-// The CAOClient offers students a menu and sends messages to the server using TCP Sockets
-
-/*
-MENU GOES IN THIS CLASS, REGISTER, LOGOUT ETC. BUILD
-UP MESSAGE
- */
-
 import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
@@ -27,15 +17,12 @@ public class VaccineClient {
 
     public VaccineClient() {
         try {
-            //socket
-            this.socket = new Socket("localhost", 50000);  // connect to server socket, and open new socket
+            this.socket = new Socket("localhost", 50000);
 
-            //reader
             InputStreamReader isReader = new InputStreamReader(socket.getInputStream());
             this.socketReader = new BufferedReader(isReader);
 
-            //socket writer
-            this.socketWriter = new PrintWriter(socket.getOutputStream(), true);// true=> auto flush buffers
+            this.socketWriter = new PrintWriter(socket.getOutputStream(), true);
 
             System.out.println("Client: Port# of this client : " + socket.getLocalPort());
             System.out.println("Client: Port# of Server :" + socket.getPort());
