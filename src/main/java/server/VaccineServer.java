@@ -1,25 +1,10 @@
 package server;
 
-import client.VaccineClient;
-import server.VaccineClientHandler;
-import dto.VaccineCentre;
 import exceptions.DaoException;
-import dto.User;
-import dao.VaccineCentreDaoInterface;
-import dao.MySqlVaccineCentreDao;
-import dao.MySqlUserDao;
-import dao.UserDaoInterface;
 
 import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.util.*;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 
 
 /* The server package should contain all code to run the server. The server uses TCP sockets and thread per client.

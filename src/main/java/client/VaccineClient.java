@@ -9,19 +9,9 @@ package client;
 MENU GOES IN THIS CLASS, REGISTER, LOGOUT ETC. BUILD
 UP MESSAGE
  */
-import client.VaccineService;
-import dto.VaccineCentre;
-import dto.User;
-import dao.VaccineCentreDaoInterface;
-import dao.MySqlVaccineCentreDao;
-import dao.MySqlUserDao;
-import exceptions.DaoException;
 
-import javax.sound.midi.Soundbank;
 import java.io.*;
 import java.net.Socket;
-import java.sql.SQLOutput;
-import java.util.List;
 import java.util.Scanner;
 
 public class VaccineClient {

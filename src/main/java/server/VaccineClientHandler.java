@@ -3,13 +3,11 @@ package server;
 The CAOClientHandler will run as a thread. It should listen for messages from the Client and respond to them.There should be one CAOClientHandler per Client.
  */
 
-import client.Menu;
+import dao.MySqlVaccineCentreDao;
 import client.VaccineService;
 import dto.VaccineCentre;
 import dto.User;
-import dto.VaccineCentre;
 import dao.*;
-import dao.M
 import exceptions.DaoException;
 
 import java.io.IOException;
@@ -20,7 +18,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Scanner;
 
 
 public class VaccineClientHandler implements Runnable {

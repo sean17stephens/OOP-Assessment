@@ -1,4 +1,6 @@
 package dao;
+import dao.MySqlDao;
+import dao.VaccineAppointmentDaoInterface;
 import dto.User;
 import dto.VaccineCentre;
 import exceptions.DaoException;
@@ -10,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MySqlVaccineCentreDao extends MySqlDao implements VaccineAppointmentDaoInterface {
+public class MySqlVaccineAppointmentDao extends MySqlDao implements VaccineAppointmentDaoInterface {
     public boolean updateChoices(String VaccineAppointment) throws DaoException {
 
         Connection con = null;
