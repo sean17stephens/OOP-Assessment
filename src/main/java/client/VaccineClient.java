@@ -23,7 +23,6 @@ public class VaccineClient {
     public static void main(String[] args) {
         VaccineClient client = new VaccineClient();
         client.doLoginMenuLoop();
-
     }
 
     public VaccineClient() {
@@ -69,6 +68,7 @@ public class VaccineClient {
                     case LOGIN:
                         System.out.println("Login Chosen");
                         login();
+                        doMenuLoop();
                         break;
                 }
 
@@ -170,6 +170,39 @@ public class VaccineClient {
         }
     }
 
+
+    public void login() throws IOException {
+        System.out.println("LOGIN");
+        System.out.println("Please enter your user id:");
+        int user_id = kb.nextInt();
+        RegexChecker.checkUser(user_id);
+        System.out.println("Please enter your Password: ");
+        String password = kb.next();
+
+        String message = VaccineService.LOGIN_COMMAND + VaccineService.BREAKING_CHARACTER + user_id + VaccineService.BREAKING_CHARACTER +
+                password;
+
+        System.out.println("Message ready to be sent to the server" + message);
+
+        System.out.println(message);
+        this.doMenuLoop();
+        /*if (socketReader.readLine().equalsIgnoreCase("True")) {
+            System.out.println("Login Successful");
+
+            this.doMenuLoop();
+
+        } else {
+            System.out.println("Login Failed");
+        }*/
+
+    }
+
+    public void logout() {
+        System.out.println("You have been logged out");
+        doLoginMenuLoop();
+    }
+
+
     public void findVaccineCentre() {
         try {
 
@@ -242,37 +275,6 @@ public class VaccineClient {
 
         }
 
-    }
-
-
-    public void login() throws IOException {
-        System.out.println("LOGIN");
-        System.out.println("Please enter your user id:");
-        int user_id = kb.nextInt();
-        RegexChecker.checkUser(user_id);
-        System.out.println("Please enter your Password: ");
-        String password = kb.next();
-
-        String message = VaccineService.LOGIN_COMMAND + VaccineService.BREAKING_CHARACTER + user_id + VaccineService.BREAKING_CHARACTER +
-                password;
-
-        System.out.println("Message ready to be sent to the server" + message);
-
-        socketWriter.println(message);
-        if (socketReader.readLine().equalsIgnoreCase("True")) {
-            System.out.println("Login Successful");
-
-            this.doMenuLoop();
-
-        } else {
-            System.out.println("Login Failed");
-        }
-
-    }
-
-    public void logout() {
-        System.out.println("You have been logged out");
-        doLoginMenuLoop();
     }
 
     public void updateVaccineAppointment() {
